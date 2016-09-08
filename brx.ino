@@ -1,34 +1,12 @@
 #define VERSION "BRX lighting"
 
 #include "Arduino.h"
-#include "rtblight.h"
 #include <Adafruit_NeoPixel.h>
 
 unsigned long time = 0;
 unsigned long tickcount = 0;
 #define REPORT_INTERVAL 1000
 unsigned long next_report_time = 0;
-
-class Mode {
-};
-
-class BlinkMode : Mode {
-	public:
-	unsigned int blink_on_length;
-	unsigned int blink_off_length;
-	Color color;
-	private:
-	bool blink_on;
-	millitime_t when_to_blink;
-	public:
-	virtual void loop( millitime_t time );
-};
-
-class LowMode : BlinkMode {
-};
-
-class HighMode : BlinkMode {
-};
 
 #define PIN_PIXEL 13
 #define NUM_PIXELS 180
